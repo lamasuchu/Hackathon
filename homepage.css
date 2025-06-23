@@ -1,3 +1,27 @@
 .wrapper{
-    overflow: hidden;
+  overflow: hidden;
+  width: 100vw;
 }
+.imageContainer {
+  display: flex;
+  gap: 25px;
+  padding: 20px;
+  scroll-behavior: smooth;
+  overflow-x: auto;
+  scrollbar-width: none; 
+}
+
+.imageContainer::-webkit-scrollbar {
+  display: none;
+}
+
+.image {
+  flex: 0 0 400px;
+  height: 275px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 10px;
+}
+
+
+
