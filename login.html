@@ -3,30 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Page</title>
+    <title>Nepal Travel Helper - Login</title>
+    <link rel="stylesheet" href="login.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <style>
-    body {
-      background-image: url('background.png');
-      background-repeat: no-repeat;
-      background-attachment: fixed;
-      background-size: cover;
-      background-size: 100% 100%;
-    }
-  </style>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <div class="container">
-     <img src="logo.png" alt="Logo" class="logo">
-    <h2>Login</h2>
-    <form action="homepage.html" method="get">
-      <input type="text" placeholder="Username" name="username" required>
-      <input type="password" placeholder="Password" name="password" required>
-      <button type="submit">Login</button>
-      <p class="register-link">Don't have an account? <a href="#">Register</a></p>
-    </form>
-  </div>
+    <div class="login-container">
+        <div class="login-header">
+            <img src="logo.png" alt="Nepal Travel Helper" class="logo">
+            <h1>Welcome to Nepal Travel Helper</h1>
+            <p>Explore the beautiful destinations of Nepal</p>
+        </div>
+        <form id="loginForm" class="login-form">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit" class="login-btn">Login</button>
+            <div class="signup-link">
+                Don't have an account? <a href="#">Sign up</a>
+            </div>
+        </form>
+    </div>
+    <script src="login.js"></script>
 </body>
 </html>
