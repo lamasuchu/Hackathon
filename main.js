@@ -1,4 +1,4 @@
-// DOM Elements
+
 const usernameDisplay = document.getElementById('usernameDisplay');
 const navLinks = document.querySelectorAll('.main-nav a');
 const contentSections = document.querySelectorAll('.content-section');
@@ -17,14 +17,14 @@ const confirmBtn = document.querySelector('.confirm-btn');
 const printBtn = document.querySelector('.print-btn');
 const doneBtn = document.querySelector('.done-btn');
 
-// Destination Data
+
 const destinations = [
     {
         id: 1,
         name: "Gosaikunda",
         region: "langtang",
         description: "Gosaikunda is a sacred alpine lake in the Langtang National Park at an altitude of 4,380 meters. It's a significant pilgrimage site for Hindus and offers breathtaking views of the surrounding Himalayas.",
-        images: ["gosaikunda1.jpg", "gosaikunda2.jpg", "gosaikunda3.jpg"],
+        images: ["gosaikunda.png"],
         rating: 4.8,
         reviews: 124,
         bus: {
@@ -35,13 +35,13 @@ const destinations = [
         },
         plane: {
             duration: "45 minutes",
-            price: "$120",
+            price: "Rs15000",
             weather: "Flights may be delayed due to mountain weather",
             considerations: "Limited baggage allowance (15kg)"
         },
         helicopter: {
             duration: "30 minutes",
-            price: "$300",
+            price: "Rs50000",
             capacity: "5 passengers max",
             considerations: "Highly weather dependent, book with flexibility"
         }
@@ -51,7 +51,7 @@ const destinations = [
         name: "Paach Pokhari",
         region: "eastern",
         description: "Paach Pokhari, meaning 'Five Ponds' in Nepali, is a group of five high-altitude lakes situated at 4,100 meters. It's a remote and pristine destination offering spectacular views of the Himalayan range.",
-        images: ["paachpokhari1.jpg", "paachpokhari2.jpg", "paachpokhari3.jpg"],
+        images: ["paachpokhari.png"],
         rating: 4.5,
         reviews: 87,
         bus: {
@@ -78,7 +78,7 @@ const destinations = [
         name: "Annapurna Base Camp",
         region: "annapurna",
         description: "Annapurna Base Camp (4,130m) offers one of the most spectacular mountain panoramas in the world, with views of Annapurna I, Machapuchare, Hiunchuli, and other peaks.",
-        images: ["annapurna1.jpg", "annapurna2.jpg", "annapurna3.jpg"],
+        images: ["AbcCamp.png"],
         rating: 4.9,
         reviews: 215,
         bus: {
@@ -105,7 +105,7 @@ const destinations = [
         name: "Kori Himal",
         region: "annapurna",
         description: "Kori Mardi is a stunning viewpoint in the Annapurna region offering magnificent views of Machapuchare (Fishtail Mountain) and the Annapurna range. It's a less crowded alternative to Poon Hill.",
-        images: ["korimardi1.jpg", "korimardi2.jpg", "korimardi3.jpg"],
+        images: ["kori.png"],
         rating: 4.6,
         reviews: 76,
         bus: {
@@ -132,7 +132,7 @@ const destinations = [
         name: "Langtang Valley",
         region: "langtang",
         description: "Langtang Valley, often called the 'valley of glaciers', offers beautiful landscapes, rich Tamang culture, and relatively easy access from Kathmandu. The valley was affected by the 2015 earthquake but has largely recovered.",
-        images: ["langtang1.jpg", "langtang2.jpg", "langtang3.jpg"],
+        images: ["langtang.png"],
         rating: 4.7,
         reviews: 142,
         bus: {
@@ -152,6 +152,7 @@ const destinations = [
             price: "$400",
             capacity: "5 passengers max",
             considerations: "Can land in Kyanjin Gompa in good weather"
+
         }
     },
     {
@@ -159,7 +160,7 @@ const destinations = [
         name: "Everest Base Camp",
         region: "everest",
         description: "The trek to Everest Base Camp (5,364m) is one of the most famous in the world, offering incredible views of Mt. Everest and other 8,000m peaks. The journey takes you through Sherpa villages and Buddhist monasteries.",
-        images: ["EverestBaseCamp.png", "everest2.jpg", "everest3.jpg"],
+        images: ["EBC.png"],
         rating: 4.9,
         reviews: 298,
         bus: {
@@ -213,7 +214,7 @@ const destinations = [
         name: "Ghandruk-Poonhill",
         region: "annapurna",
         description: "The Ghandruk-Poonhill trek is one of Nepal's most popular short treks, offering magnificent views of Annapurna South, Hiunchuli, and Machapuchare, along with rich Gurung culture.",
-        images: ["ghandruk1.jpg", "ghandruk2.jpg", "ghandruk3.jpg"],
+        images: ["ghandruk.png"],
         rating: 4.8,
         reviews: 187,
         bus: {
@@ -240,7 +241,7 @@ const destinations = [
         name: "Lower Mustang",
         region: "mustang",
         description: "Lower Mustang, the gateway to the Upper Mustang restricted area, features dramatic arid landscapes, Tibetan-influenced culture, and the famous Muktinath Temple at 3,800 meters.",
-        images: ["", "mustang2.jpg", "mustang3.jpg"],
+        images: ["lower.png"],
         rating: 4.7,
         reviews: 134,
         bus: {
@@ -291,7 +292,7 @@ const destinations = [
     }
 ];
 
-// Current Booking Data
+
 let currentBooking = {
     destination: null,
     transport: null,
@@ -301,22 +302,22 @@ let currentBooking = {
     reference: null
 };
 
-// Initialize the application
+
 function init() {
-    // Set username from localStorage
+    
     const username = localStorage.getItem('currentUser');
     if (username) {
         usernameDisplay.textContent = username;
     }
     
-    // Load destinations
+    
     loadDestinations();
     
-    // Set today's date as min for date picker
+    
     const today = new Date().toISOString().split('T')[0];
     document.getElementById('travelDate').min = today;
     
-    // Generate random booking reference
+
     currentBooking.reference = generateBookingReference();
     document.getElementById('bookingReference').textContent = currentBooking.reference;
 }
@@ -353,24 +354,23 @@ function loadDestinations() {
     });
 }
 
-// Open destination modal
 function openDestinationModal(id) {
     const destination = destinations.find(d => d.id === id);
     if (!destination) return;
     
-    // Set current booking destination
+    
     currentBooking.destination = destination.name;
     
-    // Update modal content
+    
     document.getElementById('modalDestinationName').textContent = destination.name;
     document.getElementById('modalDescription').textContent = destination.description;
     
-    // Set main image
+
     const mainImage = document.getElementById('modalMainImage');
     mainImage.src = `images/${destination.images[0]}`;
     mainImage.alt = destination.name;
     
-    // Set thumbnails
+    
     const thumbnailsContainer = document.querySelector('.thumbnail-images');
     thumbnailsContainer.innerHTML = '';
     
@@ -384,7 +384,7 @@ function openDestinationModal(id) {
         thumbnailsContainer.appendChild(thumb);
     });
     
-    // Set transport information
+    
     document.getElementById('bus-duration').textContent = destination.bus.duration;
     document.getElementById('bus-price').textContent = destination.bus.price;
     document.getElementById('bus-condition').textContent = destination.bus.condition;
@@ -400,34 +400,34 @@ function openDestinationModal(id) {
     document.getElementById('helicopter-capacity').textContent = destination.helicopter.capacity;
     document.getElementById('helicopter-considerations').textContent = destination.helicopter.considerations;
     
-    // Show modal
+    
     destinationModal.style.display = 'block';
 }
 
-// Open booking modal
+
 function openBookingModal(transport) {
     currentBooking.transport = transport;
     
-    // Update modal content
+    
     document.getElementById('bookingTransportType').textContent = transport.charAt(0).toUpperCase() + transport.slice(1);
     document.getElementById('bookingDestinationName').textContent = currentBooking.destination;
     
-    // Update summary
+    
     document.getElementById('summaryDestination').textContent = currentBooking.destination;
     document.getElementById('summaryTransport').textContent = transport;
     
-    // Generate seat map based on transport type
+    
     generateSeatMap(transport);
     
-    // Close destination modal and open booking modal
+
     destinationModal.style.display = 'none';
     bookingModal.style.display = 'block';
     
-    // Reset to step 1
+    
     resetBookingSteps(1);
 }
 
-// Generate seat map
+
 function generateSeatMap(transport) {
     const seatMap = document.querySelector('.seat-map');
     seatMap.innerHTML = '';
@@ -460,17 +460,17 @@ function generateSeatMap(transport) {
             ['E1', 'E2', null, null, 'E3', 'E4'],
             ['F1', 'F2', null, null, 'F3', 'F4']
         ];
-    } else { // helicopter
+    } else { 
         rows = 1;
         cols = 5;
         seatLayout = [['S1', 'S2', 'S3', 'S4', 'S5']];
     }
     
-    // Create seat map
+    
     const mapContainer = document.createElement('div');
     mapContainer.className = 'map-container';
     
-    // Add aisle for plane
+    
     if (transport === 'plane') {
         const aisle = document.createElement('div');
         aisle.className = 'aisle';
@@ -478,7 +478,7 @@ function generateSeatMap(transport) {
         mapContainer.appendChild(aisle);
     }
     
-    // Create seats
+    
     for (let i = 0; i < rows; i++) {
         const row = document.createElement('div');
         row.className = 'seat-row';
@@ -494,7 +494,7 @@ function generateSeatMap(transport) {
                     toggleSeatSelection(this);
                 });
                 
-                // Randomly book some seats (for demo)
+                
                 if (Math.random() < 0.3) {
                     seat.classList.remove('available');
                     seat.classList.add('booked');
@@ -502,7 +502,7 @@ function generateSeatMap(transport) {
                 
                 row.appendChild(seat);
             } else if (transport === 'plane' && (j === 2 || j === 3)) {
-                // Empty space for aisle in plane
+            
                 const space = document.createElement('div');
                 space.className = 'aisle-space';
                 row.appendChild(space);
@@ -515,7 +515,6 @@ function generateSeatMap(transport) {
     seatMap.appendChild(mapContainer);
 }
 
-// Toggle seat selection
 function toggleSeatSelection(seatElement) {
     if (seatElement.classList.contains('booked')) return;
     
@@ -523,7 +522,7 @@ function toggleSeatSelection(seatElement) {
         seatElement.classList.remove('selected');
         seatElement.classList.add('available');
         
-        // Remove from current booking
+        
         const index = currentBooking.seats.indexOf(seatElement.dataset.seat);
         if (index > -1) {
             currentBooking.seats.splice(index, 1);
@@ -540,14 +539,14 @@ function toggleSeatSelection(seatElement) {
     updateSelectedSeatsInfo();
 }
 
-// Update selected seats info
+
 function updateSelectedSeatsInfo() {
     const countElement = document.getElementById('selectedSeatsCount');
     const priceElement = document.getElementById('selectedSeatsPrice');
     
     countElement.textContent = currentBooking.seats.length;
     
-    // Calculate price based on transport type
+    
     let pricePerSeat = 0;
     if (currentBooking.transport === 'bus') {
         pricePerSeat = 15;
@@ -560,12 +559,12 @@ function updateSelectedSeatsInfo() {
     const totalPrice = currentBooking.seats.length * pricePerSeat;
     priceElement.textContent = totalPrice;
     
-    // Update summary
+    
     document.getElementById('summarySeats').textContent = currentBooking.seats.join(', ');
     document.getElementById('summaryTotal').textContent = totalPrice;
 }
 
-// Reset booking steps to a specific step
+
 function resetBookingSteps(step) {
     bookingSteps.forEach(s => s.classList.remove('active'));
     document.getElementById(`step${step}`).classList.add('active');
@@ -578,8 +577,8 @@ function resetBookingSteps(step) {
     });
 }
 
-// Generate random booking reference
-function generateBookingReference() {
+
+function generateBookingnce() {
     const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
     let result = '';
     for (let i = 0; i < 6; i++) {
@@ -588,21 +587,21 @@ function generateBookingReference() {
     return result;
 }
 
-// Event Listeners
+
 navLinks.forEach(link => {
     link.addEventListener('click', function(e) {
         e.preventDefault();
         
-        // Remove active class from all links
+       
         navLinks.forEach(l => l.classList.remove('active'));
         
-        // Add active class to clicked link
+        
         this.classList.add('active');
         
-        // Hide all sections
+        
         contentSections.forEach(section => section.classList.remove('active'));
         
-        // Show corresponding section
+        
         const sectionId = this.dataset.section;
         document.getElementById(sectionId).classList.add('active');
     });
@@ -626,16 +625,16 @@ transportTabs.forEach(tab => {
     tab.addEventListener('click', function() {
         const transport = this.dataset.transport;
         
-        // Remove active class from all tabs
+        
         transportTabs.forEach(t => t.classList.remove('active'));
         
-        // Add active class to clicked tab
+       
         this.classList.add('active');
         
-        // Hide all transport sections
+        
         transportSections.forEach(section => section.classList.remove('active'));
         
-        // Show corresponding section
+        
         document.getElementById(`${transport}-details`).classList.add('active');
     });
 });
@@ -651,7 +650,7 @@ nextButtons.forEach(btn => {
     btn.addEventListener('click', function() {
         const nextStep = parseInt(this.dataset.next);
         
-        // Validate current step before proceeding
+    
         if (nextStep === 2) {
             const date = document.getElementById('travelDate').value;
             if (!date) {
@@ -666,7 +665,7 @@ nextButtons.forEach(btn => {
                 return;
             }
         } else if (nextStep === 4) {
-            // Validate payment info
+            
             if (currentBooking.paymentMethod === 'credit') {
                 const cardNumber = document.getElementById('cardNumber').value;
                 const cardName = document.getElementById('cardName').value;
@@ -685,7 +684,7 @@ nextButtons.forEach(btn => {
                 }
             }
             
-            // Update confirmation details
+            
             document.getElementById('confirmationDestination').textContent = currentBooking.destination;
         }
         
@@ -705,37 +704,35 @@ paymentMethods.forEach(method => {
         const methodType = this.dataset.method;
         currentBooking.paymentMethod = methodType;
         
-        // Remove active class from all methods
+        
         paymentMethods.forEach(m => m.classList.remove('active'));
         
-        // Add active class to clicked method
+        
         this.classList.add('active');
         
-        // Hide all payment details
+        
         paymentDetails.forEach(detail => detail.classList.remove('active'));
         
-        // Show corresponding details
+       
         document.querySelector(`.${methodType}-details`).classList.add('active');
     });
 });
 
 confirmBtn.addEventListener('click', function() {
-    // In a real app, you would process payment here
-    // For demo, we'll just show the confirmation
+    
     
     resetBookingSteps(4);
 });
 
 printBtn.addEventListener('click', function() {
-    // In a real app, this would print the receipt
+    
     alert('Receipt printing would be implemented here');
 });
 
 doneBtn.addEventListener('click', function() {
-    // Close modal and reset for next booking
+    
     bookingModal.style.display = 'none';
     
-    // Reset booking data (except reference)
     currentBooking = {
         ...currentBooking,
         destination: null,
@@ -745,25 +742,25 @@ doneBtn.addEventListener('click', function() {
         paymentMethod: 'credit'
     };
     
-    // Generate new reference for next booking
+    
     currentBooking.reference = generateBookingReference();
     document.getElementById('bookingReference').textContent = currentBooking.reference;
 });
 
-// Initialize the app when DOM is loaded
+
 document.addEventListener('DOMContentLoaded', init);
-// Add this to your existing main.js
+
 document.querySelector('.logout-btn a').addEventListener('click', function(e) {
     e.preventDefault();
     
-    // Clear login status
+    
     localStorage.removeItem('isLoggedIn');
     localStorage.removeItem('currentUser');
     
-    // Redirect to login page
+    
     window.location.href = 'index.html';
 });
-// Suggestion Form Handling
+
 const suggestionForm = document.getElementById('suggestionForm');
 const thankYouMessage = document.getElementById('thankYouMessage');
 
@@ -771,32 +768,31 @@ if (suggestionForm) {
     suggestionForm.addEventListener('submit', function(e) {
         e.preventDefault();
         
-        // Get form values
+        
         const name = document.getElementById('suggestionName').value;
         const email = document.getElementById('suggestionEmail').value;
         const message = document.getElementById('suggestionMessage').value;
         
-        // Simple validation
+        
         if (!name || !email || !message) {
             alert('Please fill in all fields');
             return;
         }
         
-        // In a real app, you would send this data to a server
-        // For demo, we'll just show the thank you message
+    
         suggestionForm.style.display = 'none';
         thankYouMessage.style.display = 'block';
         
-        // Reset form
+    
         suggestionForm.reset();
         
-        // Hide thank you message after 5 seconds
+        
         setTimeout(() => {
             thankYouMessage.style.display = 'none';
             suggestionForm.style.display = 'block';
         }, 5000);
         
-        // Store in localStorage for demo purposes
+    
         const suggestions = JSON.parse(localStorage.getItem('suggestions') || '[]');
         suggestions.push({
             name,
