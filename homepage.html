@@ -3,24 +3,299 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Page</title>
+    <title>Document</title>
+    <link rel="stylesheet" href="main.css">
 </head>
 <body>
-<div class="wrapper">
-        <div class="imageContainer" id="scrollContainer">
-            <div class="image" style="background-image: url('kori.jpeg');"></div>
-            <div class="image" style="background-image: url('Kanchenjunga\ Circuit\ Trek.jpeg');"></div>
-            <div class="image" style="background-image: url('badimalika.jpeg');"></div>
-            <div class="image" style="background-image: url('AbcCamp.jpeg');"></div>
-            <div class="image" style="background-image: url('everest\ base\ camp.webp');"></div>
-            <div class="image" style="background-image: url('panchpokhari.jpeg');"></div>
-            <div class="image" style="background-image: url('khumai.jpeg');"></div>
-            <div class="image" style="background-image: url('mardi.jpeg');"></div>
-            <div class="image" style="background-image: url('gosaikunda-lake.webp');"></div>
-        </div>
+    <script>
+        if(!localStorage.getItem('isloggedIn')){
+            window.location.href='login.html';
+        }
+    </script>
+ <div class="container">
+        <aside class="sidebar">
+            <div class="user-profile">
+                <div class="avatar">
+                    <i class="fas fa-user"></i>
+                </div>
+                <span id="usernameDisplay" class="username">User</span>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#" class="active" data-section="home"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="#" data-section="about"><i class="fas fa-info-circle"></i> About Us</a></li>
+                    <li><a href="#" data-section="destinations"><i class="fas fa-map-marked-alt"></i> Destinations</a></li>
+                    <li><a href="#" data-section="bookings"><i class="fas fa-ticket-alt"></i> My Bookings</a></li>
+                </ul>
+            </nav>
+            <div class="logout-btn">
+                <a href="login.html"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            </div>
+        </aside>
+
+
+        <main class="main-content">
+    
+            <section id="home" class="content-section active">
+                <div class="hero">
+                    <h1>Explore Nepal's Hidden Gems</h1>
+                    <p>Discover the most beautiful trekking destinations in Nepal with our expert guides and services.</p>
+                    <button class="explore-btn">Explore Destinations</button>
+                </div>
+                
+                <div class="featured-destinations">
+                    <h2>Featured Destinations</h2>
+                    <div class="destination-grid">
+            
+                    </div>
+                </div>
+            </section>
+
+            <section id="about" class="content-section">
+                <h2>About Us</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p>Your Next Destination is your one-stop solution for exploring the breathtaking landscapes of Nepal. We provide comprehensive information about popular trekking destinations, transportation options, and booking services.</p>
+                        <p>Our mission is to make your travel planning seamless and enjoyable, ensuring you have all the information you need to make the most of your Nepalese adventure.</p>
+                        <h3>Our Services</h3>
+                        <ul>
+                            <li>Detailed destination information</li>
+                            <li>Transportation options and booking</li>
+                            <li>Expert travel advice</li>
+                            <li>24/7 customer support</li>
+                        </ul>
+                    </div>
+                    <div class="about-image">
+                        <img src="everest base camp.webp" alt="About Nepal">
+                    </div>
+                </div>
+            </section>
+
+            <section id="destinations" class="content-section">
+                <h2>Popular Destinations</h2>
+                <div class="search-filter">
+                    <input type="text" placeholder="Search destinations...">
+                  <select>
+    <option value="all">All Regions</option>
+    <option value="langtang">Langtang Region</option>
+    <option value="annapurna">Annapurna Region</option>
+    <option value="everest">Everest Region</option>
+    <option value="western">Western Nepal</option>
+    <option value="mustang">Mustang Region</option> 
+    </select>
+                <div class="destination-grid">
+                    
+                </div>
+            </section>
+
+            <section id="bookings" class="content-section">
+                <h2>My Bookings</h2>
+                <div class="bookings-container">
+                    <div class="no-bookings">
+                        <i class="fas fa-ticket-alt"></i>
+                        <p>You don't have any bookings yet.</p>
+                        <button class="explore-btn">Explore Destinations</button>
+                    </div>
+                </div>
+            </section>
+
+            <div id="destinationModal" class="modal">
+                <div class="modal-content">
+                    <span class="close-modal">&times;</span>
+                    <div class="modal-header">
+                        <h2 id="modalDestinationName">Destination Name</h2>
+                        <div class="destination-rating">
+                            <span class="stars">★★★★★</span>
+                            <span class="reviews">(24 reviews)</span>
+                        </div>
+                    </div>
+                    <div class="modal-body">
+                        <div class="destination-images">
+                            <div class="main-image">
+                                <img id="modalMainImage" src="" alt="Destination">
+                            </div>
+                            <div class="thumbnail-images">
+                            </div>
+                        </div>
+                        <div class="destination-info">
+                            <h3>Overview</h3>
+                            <p id="modalDescription">Loading description...</p>
+                            
+                            <h3>Transportation Options</h3>
+                            <div class="transport-options">
+                                <div class="transport-tabs">
+                                    <button class="transport-tab active" data-transport="bus">Bus</button>
+                                    <button class="transport-tab" data-transport="plane">Plane</button>
+                                    <button class="transport-tab" data-transport="helicopter">Helicopter</button>
+                                </div>
+                                <div class="transport-details">
+                                    <div id="bus-details" class="transport-section active">
+                                        <h4>Bus Service Information</h4>
+                                        <p><strong>Duration:</strong> <span id="bus-duration">8 hours</span></p>
+                                        <p><strong>Price:</strong> <span id="bus-price">$15</span></p>
+                                        <p><strong>Road Condition:</strong> <span id="bus-condition">Moderate, some rough patches</span></p>
+                                        <p><strong>Things to Consider:</strong> <span id="bus-considerations">Bring motion sickness medicine if prone to car sickness</span></p>
+                                        <button class="book-btn" data-transport="bus">Book Bus Tickets</button>
+                                    </div>
+                                    <div id="plane-details" class="transport-section">
+                                        <h4>Plane Service Information</h4>
+                                        <p><strong>Duration:</strong> <span id="plane-duration">45 minutes</span></p>
+                                        <p><strong>Price:</strong> <span id="plane-price">$120</span></p>
+                                        <p><strong>Weather Considerations:</strong> <span id="plane-weather">Flights may be delayed due to mountain weather</span></p>
+                                        <p><strong>Things to Consider:</strong> <span id="plane-considerations">Limited baggage allowance (15kg)</span></p>
+                                        <button class="book-btn" data-transport="plane">Book Plane Tickets</button>
+                                    </div>
+                                    <div id="helicopter-details" class="transport-section">
+                                        <h4>Helicopter Service Information</h4>
+                                        <p><strong>Duration:</strong> <span id="helicopter-duration">30 minutes</span></p>
+                                        <p><strong>Price:</strong> <span id="helicopter-price">$300</span></p>
+                                        <p><strong>Capacity:</strong> <span id="helicopter-capacity">5 passengers max</span></p>
+                                        <p><strong>Things to Consider:</strong> <span id="helicopter-considerations">Highly weather dependent, book with flexibility</span></p>
+                                        <button class="book-btn" data-transport="helicopter">Book Helicopter</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="bookingModal" class="modal">
+                <div class="modal-content booking-modal-content">
+                    <span class="close-modal">&times;</span>
+                    <h2>Book Your <span id="bookingTransportType">Transport</span> to <span id="bookingDestinationName">Destination</span></h2>
+                    
+                    <div class="booking-steps">
+                        <div class="step active" data-step="1">1. Select Date</div>
+                        <div class="step" data-step="2">2. Choose Seats</div>
+                        <div class="step" data-step="3">3. Payment</div>
+                        <div class="step" data-step="4">4. Confirmation</div>
+                    </div>
+                    
+                    <div class="booking-step-content">
+                        <div id="step1" class="booking-step active">
+                            <h3>Select Travel Date</h3>
+                            <input type="date" id="travelDate" min="">
+                            <div class="date-notes">
+                                <p><i class="fas fa-info-circle"></i> Please note that availability may vary depending on the season.</p>
+                            </div>
+                            <button class="next-btn" data-next="2">Next: Choose Seats</button>
+                        </div>
+                        <div id="step2" class="booking-step">
+                            <h3>Select Your Seats</h3>
+                            <div class="seat-selection">
+                                <div class="seat-map">
+                                </div>
+                                <div class="seat-legend">
+                                    <div class="legend-item">
+                                        <div class="seat-sample available"></div>
+                                        <span>Available</span>
+                                    </div>
+                                    <div class="legend-item">
+                                        <div class="seat-sample selected"></div>
+                                        <span>Selected</span>
+                                    </div>
+                                    <div class="legend-item">
+                                        <div class="seat-sample booked"></div>
+                                        <span>Booked</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="selected-seats-info">
+                                <p>Selected Seats: <span id="selectedSeatsCount">0</span></p>
+                                <p>Total Price: $<span id="selectedSeatsPrice">0</span></p>
+                            </div>
+                            <div class="step-buttons">
+                                <button class="back-btn" data-back="1">Back</button>
+                                <button class="next-btn" data-next="3">Next: Payment</button>
+                            </div>
+                        </div>
+                        
+                        
+                        <div id="step3" class="booking-step">
+                            <h3>Payment Information</h3>
+                            <div class="payment-methods">
+                                <div class="payment-method active" data-method="credit">
+                                    <i class="fas fa-credit-card"></i> Credit/Debit Card
+                                </div>
+                                <div class="payment-method" data-method="paypal">
+                                    <i class="fab fa-cc-paypal"></i> PayPal
+                                </div>
+                                <div class="payment-method" data-method="esewa">
+                                    <i class="fas fa-mobile-alt"></i> eSewa
+                                </div>
+                            </div>
+                            
+                            <div class="payment-details credit-details active">
+                                <div class="form-group">
+                                    <label for="cardNumber">Card Number</label>
+                                    <input type="text" id="cardNumber" placeholder="1234 5678 9012 3456">
+                                </div>
+                                <div class="form-group">
+                                    <label for="cardName">Name on Card</label>
+                                    <input type="text" id="cardName" placeholder="John Doe">
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="expiryDate">Expiry Date</label>
+                                        <input type="text" id="expiryDate" placeholder="MM/YY">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="cvv">CVV</label>
+                                        <input type="text" id="cvv" placeholder="123">
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="payment-details paypal-details">
+                                <p>You will be redirected to PayPal to complete your payment.</p>
+                            </div>
+                            
+                            <div class="payment-details esewa-details">
+                                <p>Please enter your eSewa ID:</p>
+                                <input type="text" id="esewaId" placeholder="eSewa ID">
+                            </div>
+                            
+                            <div class="booking-summary">
+                                <h4>Booking Summary</h4>
+                                <p>Destination: <span id="summaryDestination">Gosaikunda</span></p>
+                                <p>Transport: <span id="summaryTransport">Bus</span></p>
+                                <p>Date: <span id="summaryDate">2023-11-15</span></p>
+                                <p>Seats: <span id="summarySeats">A1, A2</span></p>
+                                <p class="total">Total: $<span id="summaryTotal">30</span></p>
+                            </div>
+                            
+                            <div class="step-buttons">
+                                <button class="back-btn" data-back="2">Back</button>
+                                <button class="confirm-btn">Confirm Payment</button>
+                            </div>
+                        </div>
+                        
+                        <div id="step4" class="booking-step">
+                            <div class="confirmation-message">
+                                <div class="confirmation-icon">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <h3>Booking Confirmed!</h3>
+                                <p>Your booking to <span id="confirmationDestination">Gosaikunda</span> has been confirmed.</p>
+                                <p>A confirmation has been sent to your email address.</p>
+                                
+                                <div class="booking-reference">
+                                    <p>Booking Reference: <strong>NTH-<span id="bookingReference">A7B9C2</span></strong></p>
+                                </div>
+                                
+                                <div class="confirmation-actions">
+                                    <button class="print-btn"><i class="fas fa-print"></i> Print Receipt</button>
+                                    <button class="done-btn">Done</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
     </div>
-    <link rel="stylesheet" href="scrolling.js">
+
+    <script src="main.js"></script>
 </body>
 </html>
-</body>
-</html>
+          
