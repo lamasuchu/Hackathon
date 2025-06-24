@@ -1,3 +1,57 @@
+<?php
+
+session_start();
+
+$host = 'localhost';
+$dbUsername = 'root';
+$password = ''; 
+$database= 'hackathon';
+
+$conn = new mysqli($host, $dbUsername, $password, $database);
+
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+$message = '';
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") 
+{
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+    var_dump($username,$password);
+
+    // Prepare and execute query
+    $stmt = $conn->prepare("SELECT password FROM users WHERE username = ?");
+    $stmt->bind_param("s", $username);
+    $stmt->execute();
+    $stmt->store_result();
+
+    // Check if user exists
+    if ($stmt->num_rows > 0) {
+        $stmt->bind_result($password_hash);
+        $stmt->fetch();
+
+    
+        if(password_verify($password, $password_hash)) {
+            $_SESSION['username'] = $username;
+            $message = "Login successful. Welcome, $username!";
+            header("Location:homepage.html");
+        } 
+        else {
+            $message ="Incorrect password.";
+        }
+        } 
+        else {
+            $message ="Username not found";
+        }
+
+        $stmt->close();
+    }
+
+    $conn->close();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

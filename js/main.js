@@ -16,284 +16,6 @@ const confirmBtn = document.querySelector('.confirm-btn');
 const printBtn = document.querySelector('.print-btn');
 const doneBtn = document.querySelector('.done-btn');
 
-
-const destinations = [
-    {
-        id: 1,
-        name: "Gosaikunda",
-        region: "langtang",
-        information:"this is that.",
-        description: "Gosaikunda is a sacred alpine lake in the Langtang National Park at an altitude of 4,380 meters. It's a significant pilgrimage site for Hindus and offers breathtaking views of the surrounding Himalayas.",
-        images: ["../images/gosaikunda.png","../images/badimalika.png","../images/EBC.png"],
-        rating: 4.8,
-        reviews: 124,
-        bus: {
-            duration: "8 hours",
-            price: "$Rs 1000",
-            condition: "Moderate, some rough patches",
-            considerations: "Bring motion sickness medicine if prone to car sickness"
-        },
-        plane: {
-            duration: "45 minutes",
-            price: "Rs5000",
-            weather: "Flights may be delayed due to mountain weather",
-            considerations: "Limited baggage allowance (15kg)"
-        },
-        helicopter: {
-            duration: "30 minutes",
-            price: "Rs40000",
-            capacity: "5 passengers max",
-            considerations: "Highly weather dependent, book with flexibility"
-        }
-    },
-    {
-        id: 2,
-        name: "Paach Pokhari",
-        region: "eastern",
-        description: "Paach Pokhari, meaning 'Five Ponds' in Nepali, is a group of five high-altitude lakes situated at 4,100 meters. It's a remote and pristine destination offering spectacular views of the Himalayan range.",
-        images: ["../images/paachpokhari.png"],
-        rating: 4.5,
-        reviews: 87,
-        bus: {
-            duration: "10 hours",
-            price: "Rs 1000",
-            condition: "Challenging, many rough sections",
-            considerations: "Not recommended during monsoon season"
-        },
-        plane: {
-            duration: "35 minutes",
-            price: "$Rs 7000",
-            weather: "Frequent cancellations due to weather",
-            considerations: "Small aircraft only"
-        },
-        helicopter: {
-            duration: "25 minutes",
-            price: "Rs 50000",
-            capacity: "4 passengers max",
-            considerations: "Advance booking required"
-        }
-    },
-    {
-        id: 3,
-        name: "Annapurna Base Camp",
-        region: "annapurna",
-        description: "Annapurna Base Camp (4,130m) offers one of the most spectacular mountain panoramas in the world, with views of Annapurna I, Machapuchare, Hiunchuli, and other peaks.",
-        images: ["../images/AbcCamp.png"],
-        rating: 4.9,
-        reviews: 215,
-        bus: {
-            duration: "6 hours to starting point",
-            price: "Rs 1220",
-            condition: "Good road to Pokhara, then trek",
-            considerations: "Multi-day trek required after bus ride"
-        },
-        plane: {
-            duration: "25 minutes to Pokhara",
-            price: "Rs8000",
-            weather: "Generally reliable",
-            considerations: "Still requires several days of trekking"
-        },
-        helicopter: {
-            duration: "45 minutes",
-            price: "Rs 60000",
-            capacity: "5 passengers max",
-            considerations: "Can land near base camp in good weather"
-        }
-    },
-    {
-        id: 4,
-        name: "Kori Himal",
-        region: "annapurna",
-        description: "Kori Mardi is a stunning viewpoint in the Annapurna region offering magnificent views of Machapuchare (Fishtail Mountain) and the Annapurna range. It's a less crowded alternative to Poon Hill.",
-        images: ["../images/kori.png"],
-        rating: 4.6,
-        reviews: 76,
-        bus: {
-            duration: "6 hours to starting point",
-            price: "Rs1000",
-            condition: "Good road to Pokhara, then trek",
-            considerations: "Requires 3-4 days of trekking"
-        },
-        plane: {
-            duration: "25 minutes to Pokhara",
-            price: "Rs10000",
-            weather: "Generally reliable",
-            considerations: "Still requires trekking"
-        },
-        helicopter: {
-            duration: "40 minutes",
-            price: "Rs 40000",
-            capacity: "5 passengers max",
-            considerations: "Can land nearby in good weather"
-        }
-    },
-    {
-        id: 5,
-        name: "Langtang Valley",
-        region: "langtang",
-        description: "Langtang Valley, often called the 'valley of glaciers', offers beautiful landscapes, rich Tamang culture, and relatively easy access from Kathmandu. The valley was affected by the 2015 earthquake but has largely recovered.",
-        images: ["../images/langtang.png"],
-        rating: 4.7,
-        reviews: 142,
-        bus: {
-            duration: "7 hours",
-            price: "14",
-            condition: "Moderate, some rough sections",
-            considerations: "Road goes up to Syabrubesi, trek required"
-        },
-        plane: {
-            duration: "N/A",
-            price: "N/A",
-            weather: "N/A",
-            considerations: "No direct flight service"
-        },
-        helicopter: {
-            duration: "35 minutes",
-            price: "400",
-            capacity: "5 passengers max",
-            considerations: "Can land in Kyanjin Gompa in good weather"
-
-        }
-    },
-    {
-        id: 6,
-        name: "Everest Base Camp",
-        region: "everest",
-        description: "The trek to Everest Base Camp (5,364m) is one of the most famous in the world, offering incredible views of Mt. Everest and other 8,000m peaks. The journey takes you through Sherpa villages and Buddhist monasteries.",
-        images: ["../images/EBC.png"],
-        rating: 4.9,
-        reviews: 298,
-        bus: {
-            duration: "10 hours to starting point",
-            price: "20",
-            condition: "Long and tiring road to Salleri or Jiri",
-            considerations: "Adds several days to the trek"
-        },
-        plane: {
-            duration: "45 minutes to Lukla",
-            price: "180",
-            weather: "Frequently delayed due to weather",
-            considerations: "Small aircraft, strict baggage limits"
-        },
-        helicopter: {
-            duration: "1 hour to base camp",
-            price: "800",
-            capacity: "5 passengers max",
-            considerations: "Can land at base camp in good conditions"
-        }
-    },
-    {
-        id: 7,
-        name: "Badimalika",
-        region: "western",
-        description: "Badimalika is a sacred temple located at 4,200 meters in the Bajura district. It's an important pilgrimage site with stunning mountain views and a unique cultural experience in far-western Nepal.",
-        images: ["../images/badimalika.png"],
-        rating: 4.3,
-        reviews: 53,
-        bus: {
-            duration: "18 hours",
-            price: "25",
-            condition: "Very challenging, rough roads",
-            considerations: "Not recommended in monsoon or winter"
-        },
-        plane: {
-            duration: "1 hour to nearby airport",
-            price: "150",
-            weather: "Unpredictable, frequent cancellations",
-            considerations: "Still requires long jeep ride"
-        },
-        helicopter: {
-            duration: "1.5 hours",
-            price: "600",
-            capacity: "5 passengers max",
-            considerations: "Only practical option for many visitors"
-        }
-    },
-    {
-        id: 8,
-        name: "Ghandruk-Poonhill",
-        region: "annapurna",
-        description: "The Ghandruk-Poonhill trek is one of Nepal's most popular short treks, offering magnificent views of Annapurna South, Hiunchuli, and Machapuchare, along with rich Gurung culture.",
-        images: ["../images/ghandruk.png"],
-        rating: 4.8,
-        reviews: 187,
-        bus: {
-            duration: "6 hours to starting point",
-            price: "12",
-            condition: "Good road to Nayapul",
-            considerations: "Classic 4-5 day trek"
-        },
-        plane: {
-            duration: "25 minutes to Pokhara",
-            price: "90",
-            weather: "Generally reliable",
-            considerations: "Still requires drive to trek start"
-        },
-        helicopter: {
-            duration: "35 minutes",
-            price: "400",
-            capacity: "5 passengers max",
-            considerations: "Can land in Ghandruk in good weather"
-        }
-    },
-    {
-        id: 9,
-        name: "Lower Mustang",
-        region: "mustang",
-        description: "Lower Mustang, the gateway to the Upper Mustang restricted area, features dramatic arid landscapes, Tibetan-influenced culture, and the famous Muktinath Temple at 3,800 meters.",
-        images: ["../images/lower.png"],
-        rating: 4.7,
-        reviews: 134,
-        bus: {
-            duration: "10 hours to Pokhara, then more",
-            price: "25",
-            condition: "Long journey with rough sections",
-            considerations: "Multi-day trek required"
-        },
-        plane: {
-            duration: "20 minutes to Jomsom",
-            price: "120",
-            weather: "Frequently windy, morning flights best",
-            considerations: "Special permit required for Mustang"
-        },
-        helicopter: {
-            duration: "1 hour",
-            price: "550",
-            capacity: "5 passengers max",
-            considerations: "Can land in Jomsom or Muktinath"
-        }
-    },
-    {
-        id: 10,
-        name: "Kanchenjunga",
-        region: "eastern",
-        Altitude:"8586 m",
-        description: "The Kanchenjunga region offers one of Nepal's most remote and spectacular treks to the base camp of the world's third highest mountain. The area is rich in biodiversity and traditional cultures.",
-        images: ["../images/kanchenjungaCircuitTrek.png"],
-        rating: 4.6,
-        reviews: 89,
-        bus: {
-            duration: "16 hours to starting point",
-            price: "Rs2002",
-            condition: "Very challenging roads",
-            considerations: "Long, demanding 3-week trek required"
-        },
-        plane: {
-            duration: "1 hour to Taplejung",
-            price: "140",
-            weather: "Unpredictable, frequent cancellations",
-            considerations: "Still requires long trek"
-        },
-        helicopter: {
-            duration: "1.5 hours",
-            price: "700",
-            capacity: "5 passengers max",
-            considerations: "Special permit required, expensive"
-        }
-    }
-];
-
-
 let currentBooking = {
     destination: null,
     transport: null,
@@ -387,10 +109,6 @@ function openDestinationModal(id) {
         thumbnailsContainer.appendChild(thumb);
     }
 );
-
-    
-    
-    
     document.getElementById('bus-duration').textContent = destination.bus.duration;
     document.getElementById('bus-price').textContent = destination.bus.price;
     document.getElementById('bus-condition').textContent = destination.bus.condition;
@@ -406,33 +124,25 @@ function openDestinationModal(id) {
     document.getElementById('helicopter-capacity').textContent = destination.helicopter.capacity;
     document.getElementById('helicopter-considerations').textContent = destination.helicopter.considerations;
     
-    
     destinationModal.style.display = 'block';
 }
-
 
 function openBookingModal(transport) {
     currentBooking.transport = transport;
     
-    
     document.getElementById('bookingTransportType').textContent = transport.charAt(0).toUpperCase() + transport.slice(1);
     document.getElementById('bookingDestinationName').textContent = currentBooking.destination;
-    
     
     document.getElementById('summaryDestination').textContent = currentBooking.destination;
     document.getElementById('summaryTransport').textContent = transport;
     
-    
     generateSeatMap(transport);
     
-
     destinationModal.style.display = 'none';
     bookingModal.style.display = 'block';
     
-    
     resetBookingSteps(1);
 }
-
 
 function generateSeatMap(transport) {
     const seatMap = document.querySelector('.seat-map');
@@ -483,7 +193,6 @@ function generateSeatMap(transport) {
         aisle.textContent = 'Aisle';
         mapContainer.appendChild(aisle);
     }
-    
     
     for (let i = 0; i < rows; i++) {
         const row = document.createElement('div');
@@ -541,7 +250,6 @@ function toggleSeatSelection(seatElement) {
         currentBooking.seats.push(seatElement.dataset.seat);
     }
     
-
     updateSelectedSeatsInfo();
 }
 
@@ -551,7 +259,6 @@ function updateSelectedSeatsInfo() {
     const priceElement = document.getElementById('selectedSeatsPrice');
     
     countElement.textContent = currentBooking.seats.length;
-    
     
     let pricePerSeat = 0;
     if (currentBooking.transport === 'bus') {
@@ -564,7 +271,6 @@ function updateSelectedSeatsInfo() {
     
     const totalPrice = currentBooking.seats.length * pricePerSeat;
     priceElement.textContent = totalPrice;
-    
     
     document.getElementById('summarySeats').textContent = currentBooking.seats.join(', ');
     document.getElementById('summaryTotal').textContent = totalPrice;
@@ -583,7 +289,6 @@ function resetBookingSteps(step) {
     });
 }
 
-
 function generateBookingnce() {
     const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
     let result = '';
@@ -592,7 +297,6 @@ function generateBookingnce() {
     }
     return result;
 }
-
 
 navLinks.forEach(link => {
     link.addEventListener('click', function(e) {
@@ -767,48 +471,6 @@ document.querySelector('.logout-btn a').addEventListener('click', function(e) {
     window.location.href = 'index.html';
 });
 
-const suggestionForm = document.getElementById('suggestionForm');
-const thankYouMessage = document.getElementById('thankYouMessage');
-
-if (suggestionForm) {
-    suggestionForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        
-        const name = document.getElementById('suggestionName').value;
-        const email = document.getElementById('suggestionEmail').value;
-        const message = document.getElementById('suggestionMessage').value;
-        
-        
-        if (!name || !email || !message) {
-            alert('Please fill in all fields');
-            return;
-        }
-        
-    
-        suggestionForm.style.display = 'none';
-        thankYouMessage.style.display = 'block';
-        
-    
-        suggestionForm.reset();
-        
-        
-        setTimeout(() => {
-            thankYouMessage.style.display = 'none';
-            suggestionForm.style.display = 'block';
-        }, 5000);
-        
-    
-        const suggestions = JSON.parse(localStorage.getItem('suggestions') || '[]');
-        suggestions.push({
-            name,
-            email,
-            message,
-            date: new Date().toISOString()
-        });
-        localStorage.setItem('suggestions', JSON.stringify(suggestions));
-    });
-}
 
 document.getElementById('searchBtn').addEventListener('click', function () {
     const searchText = document.getElementById('destinationSearch').value.trim().toLowerCase();

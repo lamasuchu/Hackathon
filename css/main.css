@@ -1,11 +1,11 @@
 :root {
-    --primary-color: purple;
+    --primary-color: rgb(128, 0, 0);
     --secondary-color: red;
     --accent-color: #e74c3c;
     --dark-color: #ca1945;
-    --light-color: #8ebac5;
-    --gray-color: #32b0b9;
-    --success-color: #2ecc71;
+    --light-color: #937777;
+    --gray-color: #db3b3b;
+    --success-color: #cc2e2e;
     --sidebar-width: 250px;
 }
 
@@ -101,7 +101,7 @@ body {
 }
 
 .logout-btn a {
-    color: rgba(255, 255, 255, 0.8);
+    color: rgba(184, 25, 25, 0.8);
     text-decoration: none;
     display: flex;
     align-items: center;
@@ -111,7 +111,7 @@ body {
 }
 
 .logout-btn a:hover {
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: red;
     color: white;
 }
 
@@ -526,7 +526,7 @@ body {
 
 .transport-section p {
     margin-bottom: 0.8rem;
-    color: red;
+    color: white;
 }
 
 .book-btn {
