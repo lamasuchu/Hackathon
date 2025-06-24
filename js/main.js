@@ -22,25 +22,26 @@ const destinations = [
         id: 1,
         name: "Gosaikunda",
         region: "langtang",
+        information:"this is that.",
         description: "Gosaikunda is a sacred alpine lake in the Langtang National Park at an altitude of 4,380 meters. It's a significant pilgrimage site for Hindus and offers breathtaking views of the surrounding Himalayas.",
-        images: ["../images/gosaikunda.png"],
+        images: ["../images/gosaikunda.png","../images/badimalika.png","../images/EBC.png"],
         rating: 4.8,
         reviews: 124,
         bus: {
             duration: "8 hours",
-            price: "$15",
+            price: "$Rs 1000",
             condition: "Moderate, some rough patches",
             considerations: "Bring motion sickness medicine if prone to car sickness"
         },
         plane: {
             duration: "45 minutes",
-            price: "Rs15000",
+            price: "Rs5000",
             weather: "Flights may be delayed due to mountain weather",
             considerations: "Limited baggage allowance (15kg)"
         },
         helicopter: {
             duration: "30 minutes",
-            price: "Rs50000",
+            price: "Rs40000",
             capacity: "5 passengers max",
             considerations: "Highly weather dependent, book with flexibility"
         }
@@ -55,19 +56,19 @@ const destinations = [
         reviews: 87,
         bus: {
             duration: "10 hours",
-            price: "$18",
+            price: "Rs 1000",
             condition: "Challenging, many rough sections",
             considerations: "Not recommended during monsoon season"
         },
         plane: {
             duration: "35 minutes",
-            price: "$110",
+            price: "$Rs 7000",
             weather: "Frequent cancellations due to weather",
             considerations: "Small aircraft only"
         },
         helicopter: {
             duration: "25 minutes",
-            price: "$350",
+            price: "Rs 50000",
             capacity: "4 passengers max",
             considerations: "Advance booking required"
         }
@@ -82,19 +83,19 @@ const destinations = [
         reviews: 215,
         bus: {
             duration: "6 hours to starting point",
-            price: "$12",
+            price: "Rs 1220",
             condition: "Good road to Pokhara, then trek",
             considerations: "Multi-day trek required after bus ride"
         },
         plane: {
             duration: "25 minutes to Pokhara",
-            price: "$90",
+            price: "Rs8000",
             weather: "Generally reliable",
             considerations: "Still requires several days of trekking"
         },
         helicopter: {
             duration: "45 minutes",
-            price: "$500",
+            price: "Rs 60000",
             capacity: "5 passengers max",
             considerations: "Can land near base camp in good weather"
         }
@@ -109,19 +110,19 @@ const destinations = [
         reviews: 76,
         bus: {
             duration: "6 hours to starting point",
-            price: "$12",
+            price: "Rs1000",
             condition: "Good road to Pokhara, then trek",
             considerations: "Requires 3-4 days of trekking"
         },
         plane: {
             duration: "25 minutes to Pokhara",
-            price: "$90",
+            price: "Rs10000",
             weather: "Generally reliable",
             considerations: "Still requires trekking"
         },
         helicopter: {
             duration: "40 minutes",
-            price: "$450",
+            price: "Rs 40000",
             capacity: "5 passengers max",
             considerations: "Can land nearby in good weather"
         }
@@ -136,7 +137,7 @@ const destinations = [
         reviews: 142,
         bus: {
             duration: "7 hours",
-            price: "$14",
+            price: "14",
             condition: "Moderate, some rough sections",
             considerations: "Road goes up to Syabrubesi, trek required"
         },
@@ -148,7 +149,7 @@ const destinations = [
         },
         helicopter: {
             duration: "35 minutes",
-            price: "$400",
+            price: "400",
             capacity: "5 passengers max",
             considerations: "Can land in Kyanjin Gompa in good weather"
 
@@ -164,19 +165,19 @@ const destinations = [
         reviews: 298,
         bus: {
             duration: "10 hours to starting point",
-            price: "$20",
+            price: "20",
             condition: "Long and tiring road to Salleri or Jiri",
             considerations: "Adds several days to the trek"
         },
         plane: {
             duration: "45 minutes to Lukla",
-            price: "$180",
+            price: "180",
             weather: "Frequently delayed due to weather",
             considerations: "Small aircraft, strict baggage limits"
         },
         helicopter: {
             duration: "1 hour to base camp",
-            price: "$800",
+            price: "800",
             capacity: "5 passengers max",
             considerations: "Can land at base camp in good conditions"
         }
@@ -191,19 +192,19 @@ const destinations = [
         reviews: 53,
         bus: {
             duration: "18 hours",
-            price: "$25",
+            price: "25",
             condition: "Very challenging, rough roads",
             considerations: "Not recommended in monsoon or winter"
         },
         plane: {
             duration: "1 hour to nearby airport",
-            price: "$150",
+            price: "150",
             weather: "Unpredictable, frequent cancellations",
             considerations: "Still requires long jeep ride"
         },
         helicopter: {
             duration: "1.5 hours",
-            price: "$600",
+            price: "600",
             capacity: "5 passengers max",
             considerations: "Only practical option for many visitors"
         }
@@ -218,19 +219,19 @@ const destinations = [
         reviews: 187,
         bus: {
             duration: "6 hours to starting point",
-            price: "$12",
+            price: "12",
             condition: "Good road to Nayapul",
             considerations: "Classic 4-5 day trek"
         },
         plane: {
             duration: "25 minutes to Pokhara",
-            price: "$90",
+            price: "90",
             weather: "Generally reliable",
             considerations: "Still requires drive to trek start"
         },
         helicopter: {
             duration: "35 minutes",
-            price: "$400",
+            price: "400",
             capacity: "5 passengers max",
             considerations: "Can land in Ghandruk in good weather"
         }
@@ -245,19 +246,19 @@ const destinations = [
         reviews: 134,
         bus: {
             duration: "10 hours to Pokhara, then more",
-            price: "$25",
+            price: "25",
             condition: "Long journey with rough sections",
             considerations: "Multi-day trek required"
         },
         plane: {
             duration: "20 minutes to Jomsom",
-            price: "$120",
+            price: "120",
             weather: "Frequently windy, morning flights best",
             considerations: "Special permit required for Mustang"
         },
         helicopter: {
             duration: "1 hour",
-            price: "$550",
+            price: "550",
             capacity: "5 passengers max",
             considerations: "Can land in Jomsom or Muktinath"
         }
@@ -266,25 +267,26 @@ const destinations = [
         id: 10,
         name: "Kanchenjunga",
         region: "eastern",
+        Altitude:"8586 m",
         description: "The Kanchenjunga region offers one of Nepal's most remote and spectacular treks to the base camp of the world's third highest mountain. The area is rich in biodiversity and traditional cultures.",
         images: ["../images/kanchenjungaCircuitTrek.png"],
         rating: 4.6,
         reviews: 89,
         bus: {
             duration: "16 hours to starting point",
-            price: "$22",
+            price: "Rs2002",
             condition: "Very challenging roads",
             considerations: "Long, demanding 3-week trek required"
         },
         plane: {
             duration: "1 hour to Taplejung",
-            price: "$140",
+            price: "140",
             weather: "Unpredictable, frequent cancellations",
             considerations: "Still requires long trek"
         },
         helicopter: {
             duration: "1.5 hours",
-            price: "$700",
+            price: "700",
             capacity: "5 passengers max",
             considerations: "Special permit required, expensive"
         }
@@ -321,7 +323,7 @@ function init() {
     document.getElementById('bookingReference').textContent = currentBooking.reference;
 }
 
-// Load destinations into grids
+
 function loadDestinations() {
     destinationGrids.forEach(grid => {
         grid.innerHTML = '';
@@ -353,6 +355,7 @@ function loadDestinations() {
     });
 }
 
+
 function openDestinationModal(id) {
     const destination = destinations.find(d => d.id === id);
     if (!destination) return;
@@ -363,15 +366,16 @@ function openDestinationModal(id) {
     
     document.getElementById('modalDestinationName').textContent = destination.name;
     document.getElementById('modalDescription').textContent = destination.description;
+    document.getElementById('modalDescription2').textContent = destination.information;
     
 
     const mainImage = document.getElementById('modalMainImage');
     mainImage.src = destination.images[0];
     mainImage.alt = destination.name;
-    
-    
     const thumbnailsContainer = document.querySelector('.thumbnail-images');
+    
     thumbnailsContainer.innerHTML = '';
+
     
     destination.images.forEach((image, index) => {
         const thumb = document.createElement('img');
@@ -381,7 +385,10 @@ function openDestinationModal(id) {
             mainImage.src = `images/${image}`;
         });
         thumbnailsContainer.appendChild(thumb);
-    });
+    }
+);
+
+    
     
     
     document.getElementById('bus-duration').textContent = destination.bus.duration;
@@ -548,11 +555,11 @@ function updateSelectedSeatsInfo() {
     
     let pricePerSeat = 0;
     if (currentBooking.transport === 'bus') {
-        pricePerSeat = 15;
+        pricePerSeat = 500;
     } else if (currentBooking.transport === 'plane') {
-        pricePerSeat = 120;
+        pricePerSeat = 5500;
     } else {
-        pricePerSeat = 300;
+        pricePerSeat = Rs40000;
     }
     
     const totalPrice = currentBooking.seats.length * pricePerSeat;

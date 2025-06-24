@@ -35,13 +35,13 @@ body {
 }
 
 .login-header h1 {
-    color: #2c3e50;
+    color: black;
     font-size: 1.8rem;
     margin-bottom: 0.5rem;
 }
 
 .login-header p {
-    color: #7f8c8d;
+    color: red;
     font-size: 0.9rem;
 }
 
@@ -58,7 +58,7 @@ body {
 .form-group label {
     display: block;
     margin-bottom: 0.5rem;
-    color: #2c3e50;
+    color: red;
     font-weight: 500;
 }
 
