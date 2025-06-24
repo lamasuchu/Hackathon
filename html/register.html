@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body{
+            background-image: url('background.png');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            background-size: 100%,100%;
+        }
+    </style>
+    <title>register</title>
+   
+    <link rel="stylesheet" href="/Hackathon/css/login.css">
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-header">
+            <img src="/Hackathon/images/logo.png" class="logo" alt="logo">
+            <h2>Register</h2>
+        </div>
+        <div class="form-group">
+        <form action="/Hackathon/php/register.php" method="post" id="loginForm" class="login-form">
+            <div class="form-group">
+                 <input type="text" placeholder="Username" name="username" required>
+            </div>
+           <div class="form-group">
+                <input type="email" placeholder="Email" name="email" required>
+           </div>
+            <div class="form-group">
+                <input type="password" placeholder="Password" name="password" required><br>
+            </div>
+        </div> 
+            <button type="submit" class="login-btn">Register</button>
+        </form>
+    </div>
+</body>
+</html>
