@@ -23,12 +23,13 @@ const destinations = [
         name: "Gosaikunda",
         region: "langtang",
         description: "Gosaikunda is a sacred alpine lake in the Langtang National Park at an altitude of 4,380 meters. It's a significant pilgrimage site for Hindus and offers breathtaking views of the surrounding Himalayas.",
+        information:"4 day trip, Spring (march april,may), Autumn (September October November and early December), Completely safe, Rasuwa district",
         images: ["../images/gosaikunda.png"],
         rating: 4.8,
         reviews: 124,
         bus: {
-            duration: "8 hours",
-            price: "$15",
+            duration: "5 hours",
+            price: "rs.1500/-",
             condition: "Moderate, some rough patches",
             considerations: "Bring motion sickness medicine if prone to car sickness"
         },
@@ -50,24 +51,25 @@ const destinations = [
         name: "Paach Pokhari",
         region: "eastern",
         description: "Paach Pokhari, meaning 'Five Ponds' in Nepali, is a group of five high-altitude lakes situated at 4,100 meters. It's a remote and pristine destination offering spectacular views of the Himalayan range.",
+        information: "3-4 days,Altitude:4100m,Moderate trek,Costs: 1000-1500 per day( total trip cost comes around 6-8k),Spring(march to may) and autmn(September to November),Moderately challenging trek",
         images: ["../images/paachpokhari.png"],
         rating: 4.5,
         reviews: 87,
         bus: {
-            duration: "10 hours",
-            price: "$18",
+            duration: "5 hours",
+            price: "rs.1000/-",
             condition: "Challenging, many rough sections",
             considerations: "Not recommended during monsoon season"
         },
         plane: {
-            duration: "35 minutes",
-            price: "$110",
-            weather: "Frequent cancellations due to weather",
-            considerations: "Small aircraft only"
+            duration: "N/A",
+            price: "N/A",
+            weather: "N/A",
+            considerations: "N/A"
         },
         helicopter: {
-            duration: "25 minutes",
-            price: "$350",
+            duration: "90 minutes",
+            price: "Rs.40000/-",
             capacity: "4 passengers max",
             considerations: "Advance booking required"
         }
@@ -77,24 +79,25 @@ const destinations = [
         name: "Annapurna Base Camp",
         region: "annapurna",
         description: "Annapurna Base Camp (4,130m) offers one of the most spectacular mountain panoramas in the world, with views of Annapurna I, Machapuchare, Hiunchuli, and other peaks.",
+        information:"Altitude: 4130m, 11 Days, suitable for beginners,best season: Spring (March-May) and Autumn (September-November)",
         images: ["../images/AbcCamp.png"],
         rating: 4.9,
         reviews: 215,
         bus: {
             duration: "6 hours to starting point",
-            price: "$12",
+            price: "rs.2000/-",
             condition: "Good road to Pokhara, then trek",
             considerations: "Multi-day trek required after bus ride"
         },
         plane: {
             duration: "25 minutes to Pokhara",
-            price: "$90",
+            price: "rs.5500/-",
             weather: "Generally reliable",
             considerations: "Still requires several days of trekking"
         },
         helicopter: {
             duration: "45 minutes",
-            price: "$500",
+            price: "rs.50000/-",
             capacity: "5 passengers max",
             considerations: "Can land near base camp in good weather"
         }
@@ -104,24 +107,25 @@ const destinations = [
         name: "Kori Himal",
         region: "annapurna",
         description: "Kori Mardi is a stunning viewpoint in the Annapurna region offering magnificent views of Machapuchare (Fishtail Mountain) and the Annapurna range. It's a less crowded alternative to Poon Hill.",
+        information:"Altitude- 4115 m, Best season- sep to jan, march to august, Moderate trek ,Duration:8 days, Total cost: 1500-2000 per day",
         images: ["../images/kori.png"],
         rating: 4.6,
         reviews: 76,
         bus: {
             duration: "6 hours to starting point",
-            price: "$12",
+            price: "rs.1500/-",
             condition: "Good road to Pokhara, then trek",
-            considerations: "Requires 3-4 days of trekking"
+            considerations: "Requires 5-7 days of trekking"
         },
         plane: {
             duration: "25 minutes to Pokhara",
-            price: "$90",
+            price: "rs.4500/-",
             weather: "Generally reliable",
             considerations: "Still requires trekking"
         },
         helicopter: {
             duration: "40 minutes",
-            price: "$450",
+            price: "rs.55000/-",
             capacity: "5 passengers max",
             considerations: "Can land nearby in good weather"
         }
@@ -136,7 +140,7 @@ const destinations = [
         reviews: 142,
         bus: {
             duration: "7 hours",
-            price: "$14",
+            price: "rs.2000/-",
             condition: "Moderate, some rough sections",
             considerations: "Road goes up to Syabrubesi, trek required"
         },
@@ -148,7 +152,7 @@ const destinations = [
         },
         helicopter: {
             duration: "35 minutes",
-            price: "$400",
+            price: "rs.60000/-",
             capacity: "5 passengers max",
             considerations: "Can land in Kyanjin Gompa in good weather"
 
@@ -159,24 +163,25 @@ const destinations = [
         name: "Everest Base Camp",
         region: "everest",
         description: "The trek to Everest Base Camp (5,364m) is one of the most famous in the world, offering incredible views of Mt. Everest and other 8,000m peaks. The journey takes you through Sherpa villages and Buddhist monasteries.",
+        information: "Location: Khumbu Region, Nepal, Height of EBC: 5,364 meters (17,598 ft),Total Trekking Days: 12–14 days (Lukla to EBC and return), Starting Point: Lukla (2,860 m), Best Time to Go, Spring: March to May, Autumn: September to November",
         images: ["../images/EBC.png"],
         rating: 4.9,
         reviews: 298,
         bus: {
             duration: "10 hours to starting point",
-            price: "$20",
+            price: "rs.2700/-",
             condition: "Long and tiring road to Salleri or Jiri",
             considerations: "Adds several days to the trek"
         },
         plane: {
             duration: "45 minutes to Lukla",
-            price: "$180",
+            price: "rs.6000/-",
             weather: "Frequently delayed due to weather",
             considerations: "Small aircraft, strict baggage limits"
         },
         helicopter: {
             duration: "1 hour to base camp",
-            price: "$800",
+            price: "rs.110000/-",
             capacity: "5 passengers max",
             considerations: "Can land at base camp in good conditions"
         }
@@ -186,24 +191,25 @@ const destinations = [
         name: "Badimalika",
         region: "western",
         description: "Badimalika is a sacred temple located at 4,200 meters in the Bajura district. It's an important pilgrimage site with stunning mountain views and a unique cultural experience in far-western Nepal.",
+        information: "15 days trek,moderatelly challenging to difficult,cost: 15000-2000,altitude:4200m.",
         images: ["../images/badimalika.png"],
         rating: 4.3,
         reviews: 53,
         bus: {
             duration: "18 hours",
-            price: "$25",
+            price: "rs.2500/-",
             condition: "Very challenging, rough roads",
             considerations: "Not recommended in monsoon or winter"
         },
         plane: {
             duration: "1 hour to nearby airport",
-            price: "$150",
+            price: "rs.7000/-",
             weather: "Unpredictable, frequent cancellations",
             considerations: "Still requires long jeep ride"
         },
         helicopter: {
             duration: "1.5 hours",
-            price: "$600",
+            price: "rs.68000/-",
             capacity: "5 passengers max",
             considerations: "Only practical option for many visitors"
         }
@@ -218,19 +224,19 @@ const destinations = [
         reviews: 187,
         bus: {
             duration: "6 hours to starting point",
-            price: "$12",
+            price: "rs.1500/-",
             condition: "Good road to Nayapul",
             considerations: "Classic 4-5 day trek"
         },
         plane: {
             duration: "25 minutes to Pokhara",
-            price: "$90",
+            price: "rs.4500/-",
             weather: "Generally reliable",
             considerations: "Still requires drive to trek start"
         },
         helicopter: {
             duration: "35 minutes",
-            price: "$400",
+            price: "rs.45000/-",
             capacity: "5 passengers max",
             considerations: "Can land in Ghandruk in good weather"
         }
@@ -245,19 +251,19 @@ const destinations = [
         reviews: 134,
         bus: {
             duration: "10 hours to Pokhara, then more",
-            price: "$25",
+            price: "rs.2000/-",
             condition: "Long journey with rough sections",
             considerations: "Multi-day trek required"
         },
         plane: {
             duration: "20 minutes to Jomsom",
-            price: "$120",
+            price: "rs.5500/-",
             weather: "Frequently windy, morning flights best",
             considerations: "Special permit required for Mustang"
         },
         helicopter: {
             duration: "1 hour",
-            price: "$550",
+            price: "rs.65000/-",
             capacity: "5 passengers max",
             considerations: "Can land in Jomsom or Muktinath"
         }
@@ -272,19 +278,19 @@ const destinations = [
         reviews: 89,
         bus: {
             duration: "16 hours to starting point",
-            price: "$22",
+            price: "2500/-",
             condition: "Very challenging roads",
             considerations: "Long, demanding 3-week trek required"
         },
         plane: {
             duration: "1 hour to Taplejung",
-            price: "$140",
+            price: "rs.5000/-",
             weather: "Unpredictable, frequent cancellations",
             considerations: "Still requires long trek"
         },
         helicopter: {
             duration: "1.5 hours",
-            price: "$700",
+            price: "rs.79000/-",
             capacity: "5 passengers max",
             considerations: "Special permit required, expensive"
         }
@@ -363,6 +369,8 @@ function openDestinationModal(id) {
     
     document.getElementById('modalDestinationName').textContent = destination.name;
     document.getElementById('modalDescription').textContent = destination.description;
+    document.getElementById('modalDescription2').textContent = destination.information;
+    
     
 
     const mainImage = document.getElementById('modalMainImage');
@@ -548,11 +556,11 @@ function updateSelectedSeatsInfo() {
     
     let pricePerSeat = 0;
     if (currentBooking.transport === 'bus') {
-        pricePerSeat = 15;
+        pricePerSeat = 650;
     } else if (currentBooking.transport === 'plane') {
-        pricePerSeat = 120;
+        pricePerSeat = 5000;
     } else {
-        pricePerSeat = 300;
+        pricePerSeat = 53000;
     }
     
     const totalPrice = currentBooking.seats.length * pricePerSeat;
