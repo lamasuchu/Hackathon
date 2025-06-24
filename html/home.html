@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nepal Travel Helper</title>
-    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="/Hackathon/css/main.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
@@ -12,7 +12,7 @@
     <script>
     
     if (!localStorage.getItem('isLoggedIn')) {
-        window.location.href = 'login.html';
+        window.location.href = 'index.html';
     }
 </script>
 
@@ -34,7 +34,7 @@
                 </ul>
             </nav>
             <div class="logout-btn">
-                <a href="login.html"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                <a href="index.html"><i class="fas fa-sign-out-alt"></i> Logout</a>
             </div>
         </aside>
 
@@ -74,7 +74,7 @@
                         </ul>
                     </div>
                     <div class="about-image">
-                        <img src="nepal.jpg" alt="About Nepal">
+                        <img src="/Hackathon/images/nepal.jpg" alt="About Nepal">
                     </div>
                 </div>
             </section>
@@ -83,7 +83,7 @@
             <section id="destinations" class="content-section">
                 <h2>Popular Destinations</h2>
                 <div class="search-filter">
-                    <input type="text" placeholder="Search destinations...">
+                    <input type="text" placeholder="Search destinations..." placeholder="Search destination...">
                   <select>
     <option value="all">All Regions</option>
     <option value="langtang">Langtang Region</option>
@@ -92,6 +92,9 @@
     <option value="western">Western Nepal</option>
     <option value="mustang">Mustang Region</option> 
 </select>
+<button id="searchBtn" title="Search">
+    <i class="fas fa-search"></i>
+</button>
                 </div>
                 <div class="destination-grid">
                 
@@ -125,7 +128,7 @@
                     <div class="modal-body">
                         <div class="destination-images">
                             <div class="main-image">
-                                <img id="modalMainImage" src="" alt="Destination">
+                                <img id="modalMainImage" src="/Hackathon/images/khumai.png" alt="Destination">
                             </div>
                             <div class="thumbnail-images">
                                 
@@ -146,7 +149,7 @@
                                     <div id="bus-details" class="transport-section active">
                                         <h4>Bus Service Information</h4>
                                         <p><strong>Duration:</strong> <span id="bus-duration">8 hours</span></p>
-                                        <p><strong>Price:</strong> <span id="bus-price">$15</span></p>
+                                        <p><strong>Price:</strong> <span id="bus-price">Rs1000</span></p>
                                         <p><strong>Road Condition:</strong> <span id="bus-condition">Moderate, some rough patches</span></p>
                                         <p><strong>Things to Consider:</strong> <span id="bus-considerations">Bring motion sickness medicine if prone to car sickness</span></p>
                                         <button class="book-btn" data-transport="bus">Book Bus Tickets</button>
@@ -154,7 +157,7 @@
                                     <div id="plane-details" class="transport-section">
                                         <h4>Plane Service Information</h4>
                                         <p><strong>Duration:</strong> <span id="plane-duration">45 minutes</span></p>
-                                        <p><strong>Price:</strong> <span id="plane-price">$120</span></p>
+                                        <p><strong>Price:</strong> <span id="plane-price">Rs6000</span></p>
                                         <p><strong>Weather Considerations:</strong> <span id="plane-weather">Flights may be delayed due to mountain weather</span></p>
                                         <p><strong>Things to Consider:</strong> <span id="plane-considerations">Limited baggage allowance (15kg)</span></p>
                                         <button class="book-btn" data-transport="plane">Book Plane Tickets</button>
@@ -162,7 +165,7 @@
                                     <div id="helicopter-details" class="transport-section">
                                         <h4>Helicopter Service Information</h4>
                                         <p><strong>Duration:</strong> <span id="helicopter-duration">30 minutes</span></p>
-                                        <p><strong>Price:</strong> <span id="helicopter-price">$300</span></p>
+                                        <p><strong>Price:</strong> <span id="helicopter-price">Rs40000</span></p>
                                         <p><strong>Capacity:</strong> <span id="helicopter-capacity">5 passengers max</span></p>
                                         <p><strong>Things to Consider:</strong> <span id="helicopter-considerations">Highly weather dependent, book with flexibility</span></p>
                                         <button class="book-btn" data-transport="helicopter">Book Helicopter</button>
@@ -181,10 +184,10 @@
                     <h2>Book Your <span id="bookingTransportType">Transport</span> to <span id="bookingDestinationName">Destination</span></h2>
                     
                     <div class="booking-steps">
-                        <div class="step active" data-step="1">1. Select Date</div>
-                        <div class="step" data-step="2">2. Choose Seats</div>
-                        <div class="step" data-step="3">3. Payment</div>
-                        <div class="step" data-step="4">4. Confirmation</div>
+                        <div class="step active" data-step="1">Select Date</div>
+                        <div class="step" data-step="2"> Choose Seats</div>
+                        <div class="step" data-step="3"> Payment</div>
+                        <div class="step" data-step="4">Confirmation</div>
                     </div>
                     
                     <div class="booking-step-content">
@@ -237,8 +240,8 @@
                                 <div class="payment-method active" data-method="credit">
                                     <i class="fas fa-credit-card"></i> Credit/Debit Card
                                 </div>
-                                <div class="payment-method" data-method="paypal">
-                                    <i class="fab fa-cc-paypal"></i> PayPal
+                                <div class="payment-method" data-method="Khalti">
+                                    <i class="fab fa-mobile-alt"></i> Khalti
                                 </div>
                                 <div class="payment-method" data-method="esewa">
                                     <i class="fas fa-mobile-alt"></i> eSewa
@@ -342,6 +345,6 @@
     </div>
 </section>
 
-    <script src="main.js"></script>
+    <script src="/Hackathon/js/main.js"></script>
 </body>
 </html>

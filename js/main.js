@@ -1,4 +1,3 @@
-
 const usernameDisplay = document.getElementById('usernameDisplay');
 const navLinks = document.querySelectorAll('.main-nav a');
 const contentSections = document.querySelectorAll('.content-section');
@@ -24,7 +23,7 @@ const destinations = [
         name: "Gosaikunda",
         region: "langtang",
         description: "Gosaikunda is a sacred alpine lake in the Langtang National Park at an altitude of 4,380 meters. It's a significant pilgrimage site for Hindus and offers breathtaking views of the surrounding Himalayas.",
-        images: ["gosaikunda.png"],
+        images: ["../images/gosaikunda.png"],
         rating: 4.8,
         reviews: 124,
         bus: {
@@ -51,7 +50,7 @@ const destinations = [
         name: "Paach Pokhari",
         region: "eastern",
         description: "Paach Pokhari, meaning 'Five Ponds' in Nepali, is a group of five high-altitude lakes situated at 4,100 meters. It's a remote and pristine destination offering spectacular views of the Himalayan range.",
-        images: ["paachpokhari.png"],
+        images: ["../images/paachpokhari.png"],
         rating: 4.5,
         reviews: 87,
         bus: {
@@ -78,7 +77,7 @@ const destinations = [
         name: "Annapurna Base Camp",
         region: "annapurna",
         description: "Annapurna Base Camp (4,130m) offers one of the most spectacular mountain panoramas in the world, with views of Annapurna I, Machapuchare, Hiunchuli, and other peaks.",
-        images: ["AbcCamp.png"],
+        images: ["../images/AbcCamp.png"],
         rating: 4.9,
         reviews: 215,
         bus: {
@@ -105,7 +104,7 @@ const destinations = [
         name: "Kori Himal",
         region: "annapurna",
         description: "Kori Mardi is a stunning viewpoint in the Annapurna region offering magnificent views of Machapuchare (Fishtail Mountain) and the Annapurna range. It's a less crowded alternative to Poon Hill.",
-        images: ["kori.png"],
+        images: ["../images/kori.png"],
         rating: 4.6,
         reviews: 76,
         bus: {
@@ -132,7 +131,7 @@ const destinations = [
         name: "Langtang Valley",
         region: "langtang",
         description: "Langtang Valley, often called the 'valley of glaciers', offers beautiful landscapes, rich Tamang culture, and relatively easy access from Kathmandu. The valley was affected by the 2015 earthquake but has largely recovered.",
-        images: ["langtang.png"],
+        images: ["../images/langtang.png"],
         rating: 4.7,
         reviews: 142,
         bus: {
@@ -160,7 +159,7 @@ const destinations = [
         name: "Everest Base Camp",
         region: "everest",
         description: "The trek to Everest Base Camp (5,364m) is one of the most famous in the world, offering incredible views of Mt. Everest and other 8,000m peaks. The journey takes you through Sherpa villages and Buddhist monasteries.",
-        images: ["EBC.png"],
+        images: ["../images/EBC.png"],
         rating: 4.9,
         reviews: 298,
         bus: {
@@ -187,7 +186,7 @@ const destinations = [
         name: "Badimalika",
         region: "western",
         description: "Badimalika is a sacred temple located at 4,200 meters in the Bajura district. It's an important pilgrimage site with stunning mountain views and a unique cultural experience in far-western Nepal.",
-        images: ["badimalika.png"],
+        images: ["../images/badimalika.png"],
         rating: 4.3,
         reviews: 53,
         bus: {
@@ -214,7 +213,7 @@ const destinations = [
         name: "Ghandruk-Poonhill",
         region: "annapurna",
         description: "The Ghandruk-Poonhill trek is one of Nepal's most popular short treks, offering magnificent views of Annapurna South, Hiunchuli, and Machapuchare, along with rich Gurung culture.",
-        images: ["ghandruk.png"],
+        images: ["../images/ghandruk.png"],
         rating: 4.8,
         reviews: 187,
         bus: {
@@ -241,7 +240,7 @@ const destinations = [
         name: "Lower Mustang",
         region: "mustang",
         description: "Lower Mustang, the gateway to the Upper Mustang restricted area, features dramatic arid landscapes, Tibetan-influenced culture, and the famous Muktinath Temple at 3,800 meters.",
-        images: ["lower.png"],
+        images: ["../images/lower.png"],
         rating: 4.7,
         reviews: 134,
         bus: {
@@ -268,7 +267,7 @@ const destinations = [
         name: "Kanchenjunga",
         region: "eastern",
         description: "The Kanchenjunga region offers one of Nepal's most remote and spectacular treks to the base camp of the world's third highest mountain. The area is rich in biodiversity and traditional cultures.",
-        images: ["kanchenjungaCircuitTrek.png"],
+        images: ["../images/kanchenjungaCircuitTrek.png"],
         rating: 4.6,
         reviews: 89,
         bus: {
@@ -367,7 +366,7 @@ function openDestinationModal(id) {
     
 
     const mainImage = document.getElementById('modalMainImage');
-    mainImage.src = `images/${destination.images[0]}`;
+    mainImage.src = destination.images[0];
     mainImage.alt = destination.name;
     
     
@@ -376,7 +375,7 @@ function openDestinationModal(id) {
     
     destination.images.forEach((image, index) => {
         const thumb = document.createElement('img');
-        thumb.src = `images/${image}`;
+        thumb.src = image;
         thumb.alt = `${destination.name} - ${index + 1}`;
         thumb.addEventListener('click', () => {
             mainImage.src = `images/${image}`;
@@ -531,11 +530,11 @@ function toggleSeatSelection(seatElement) {
         seatElement.classList.remove('available');
         seatElement.classList.add('selected');
         
-        // Add to current booking
+    
         currentBooking.seats.push(seatElement.dataset.seat);
     }
     
-    // Update selected seats info
+
     updateSelectedSeatsInfo();
 }
 
@@ -803,3 +802,31 @@ if (suggestionForm) {
         localStorage.setItem('suggestions', JSON.stringify(suggestions));
     });
 }
+
+document.getElementById('searchBtn').addEventListener('click', function () {
+    const searchText = document.getElementById('destinationSearch').value.trim().toLowerCase();
+    const regionFilter = document.querySelector('.search-filter select').value;
+
+    const cards = document.querySelectorAll('.destination-card');
+
+    // Reset: Show all if nothing is searched and region is "all"
+    if (searchText === '' && regionFilter === 'all') {
+        cards.forEach(card => card.style.display = '');
+        return;
+    }
+
+    cards.forEach(card => {
+        const name = card.querySelector('h3').textContent.trim().toLowerCase();
+        const destinationId = parseInt(card.dataset.id);
+        const destination = destinations.find(d => d.id === destinationId);
+
+        const matchesSearch = name.includes(searchText);
+        const matchesRegion = regionFilter === 'all' || destination.region === regionFilter;
+
+        if (matchesSearch && matchesRegion) {
+            card.style.display = '';
+        } else {
+            card.style.display = 'none';
+        }
+    });
+});

@@ -314,6 +314,28 @@ body {
     max-width: 200px;
 }
 
+.search-filter button {
+    width: 48px;
+    height: 48px;
+    background-color: var(--primary-color);
+    border: none;
+    border-radius: 6px;
+    color: white;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.3s;
+    margin-top: 1px; /* aligns with input/select */
+}
+
+
+.search-filter button:hover {
+    background-color: var(--secondary-color);
+}
+
+
 /* Bookings Section */
 .bookings-container {
     background-color: white;
