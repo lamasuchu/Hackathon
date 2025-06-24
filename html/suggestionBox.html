@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suggestion box</title>
+    <link rel="stylesheet" href="/Hackathon/css/main.css">
+</head>
+<body>
+    <section class="suggestion-container">
+    <div class="suggestion-box">
+        <h2>We Value Your Feedback</h2>
+        <p>Help us improve by sharing your suggestions</p>
+        
+        <form id="suggestionForm">
+            <div class="form-group">
+                <input type="text" id="suggestionName" placeholder="Your Name" required>
+            </div>
+            <div class="form-group">
+                <input type="email" id="suggestionEmail" placeholder="Your Email" required>
+            </div>
+            <div class="form-group">
+                <textarea id="suggestionMessage" rows="4" placeholder="Your suggestions..." required></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Submit Suggestion</button>
+        </form>
+        
+        <div id="thankYouMessage" class="thank-you-message">
+            <i class="fas fa-check-circle"></i>
+            <h3>Thank You!</h3>
+            <p>Your suggestion has been received.</p>
+        </div>
+    </div>
+</section>
+
+</body>
+</html>
